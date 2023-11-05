@@ -10,15 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class contains methods for managing accommodations and performing various tasks.
  *
  * @author Pawel Pluta
  */
-
-
-public class Controler {
+public class Controler  {
     
-    // Method to append text to a file
-    public static void save(String fileName, String textToAppend) {
+    /**
+     * Method to append text to a file.
+     *
+     * @param fileName The name of the file to append to.
+     * @param textToAppend The text to append to the file.
+     */
+    public  void save(String fileName, String textToAppend) {
         try {
             FileWriter fileWriter = new FileWriter(fileName, true); // Set 'true' for append mode
 
@@ -30,8 +34,12 @@ public class Controler {
         }
     }
 
-    // Method to read and print the contents of a file
-    public static void read(String filePath) {
+    /**
+     * Method to read and print the contents of a file.
+     *
+     * @param filePath The path of the file to read and print.
+     */
+    public  void read(String filePath) {
         try {
             // Create a FileReader object for file reading
             FileReader fileReader = new FileReader(filePath);
@@ -52,8 +60,12 @@ public class Controler {
         }
     }
     
-    // Method to create a new client object and input their details
-    public static Client newClient() {
+    /**
+     * Method to create a new client object and input their details.
+     *
+     * @return A new Client object with user input details.
+     */
+    public  Client newClient() {
         Scanner scanner = new Scanner(System.in);
         Client newClient = new Client();
 
@@ -78,8 +90,13 @@ public class Controler {
         return newClient;
     }
 
-    // Method to convert a string to an integer
-    public static Integer toInt(String x) {
+    /**
+     * Method to convert a string to an integer.
+     *
+     * @param x The string to convert to an integer.
+     * @return The integer converted from the string. Returns 0 if the conversion fails.
+     */
+    public  Integer toInt(String x) {
         int number = 0;
         try {
             number = Integer.parseInt(x);
@@ -89,9 +106,17 @@ public class Controler {
         return number;
     }
 
-    // Method to load rooms from a file into a list
+    /**
+     * Method to load rooms from a file into a list.
+     *
+     * @return A list of Room objects loaded from the file.
+     */
     public List<Room> loadRooms() {
-        List<Room> rooms = new ArrayList<>();
+        
+        Room rooms = new Room();
+       
+        
+        
 
         try {
             File file = new File("Room.txt");
@@ -110,7 +135,7 @@ public class Controler {
                     room.setNo(toInt(data[0]));
                     room.setLvl(toInt(data[1]));
                     room.setCapacity(toInt(data[3]));
-                    rooms.add(room);
+                    rooms.roomList.add(room);
                 }
             }
 
@@ -121,22 +146,34 @@ public class Controler {
             System.err.println("Error: " + e.getMessage());
         }
         
-         for (Room element : rooms) {
-            System.out.println(element.getNo() + " " + element.getStandard().toString());
+        for (Room element : rooms.roomList) {
+            
+        System.out.println(element.getNo() + " " + element.getStandard());
+        
         }
 
-        return rooms;
+        return rooms.roomList;
     }
 
-    // Method to retrieve a specific room from the list by its number
-    public static Room showRoom(Integer number) {
+    /**
+     * Method to retrieve a specific room from the list by its number.
+     *
+     * @param number The number of the room to retrieve.
+     * @return The Room object with the specified number.
+     */
+    public  Room showRoom(Integer number) {
         Controler controller = new Controler();
         List<Room> rooms = controller.loadRooms();
-        return rooms.get(number-2);
+        return rooms.get(number - 2);
     }
 
-    // Method to check if a value is a boolean (0 or 1)
-    public static boolean boolCheck(Integer x) {
+    /**
+     * Method to check if a value is a boolean (0 or 1).
+     *
+     * @param x The value to check.
+     * @return True if the value is 0 or 1, false otherwise.
+     */
+    public  boolean boolCheck(Integer x) {
         if (x == 0 || x == 1) {
             return true;
         } else {
@@ -145,6 +182,3 @@ public class Controler {
         }
     }
 }
-
-    
- 

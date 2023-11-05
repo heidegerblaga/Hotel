@@ -1,54 +1,125 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.polsl.lab1.Models;
 
-/**
- *
- * @author Pawel Pluta
- */
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class representing a room object.
+ *
+ * This class represents a room and provides methods to access and modify room information.
+ *
+ * @author Paweł Pluta
  */
 public class Room {
-    
-    Integer no;                        // Field for storing the room number
-    Integer lvl;                       // Field for storing the room level
-    String[] standard = {"Apartment","Luxury","Family","Economy"};  // Array of room standard options (for future development purpose)
-    Integer Capacity;                  // Field for storing the room capacity
 
+    /**
+     * Enum for room standard options.
+     */
+    public enum Standard {
+        APARTMENT, LUXURY, FAMILY, ECONOMY
+    }
+
+    private Integer no; // Field for storing the room number
+    private Integer lvl; // Field for storing the room level
+    private Standard standard; // Field for storing the room standard
+    private Integer capacity; // Field for storing the room capacity
+
+    public List<Room> roomList = new ArrayList<>();
+
+    /**
+     * Constructor for the Room class.
+     */
+    public Room() {
+        // Initialize the list if needed
+    }
+
+    /**
+     * Add a room to the list of rooms.
+     *
+     * @param room The room to add to the list of rooms.
+     */
+    public void addRoom(Room room) {
+        roomList.add(room);
+    }
+
+    /**
+     * Get the list of rooms.
+     *
+     * @return The list of room objects.
+     */
+    public List<Room> getRoomList() {
+        return roomList;
+    }
+
+    /**
+     * Get the room number.
+     *
+     * @return The room number.
+     */
     public Integer getNo() {
-        return no; // Returns the room number
+        return no;
     }
 
+    /**
+     * Set the room number.
+     *
+     * @param no The new room number to set for the room.
+     */
     public void setNo(Integer no) {
-        this.no = no; // Sets the room number
+        this.no = no;
     }
 
+    /**
+     * Get the room level.
+     *
+     * @return The room level.
+     */
     public Integer getLvl() {
-        return lvl; // Returns the room level
+        return lvl;
     }
 
+    /**
+     * Set the room level.
+     *
+     * @param lvl The new room level to set for the room.
+     */
     public void setLvl(Integer lvl) {
-        this.lvl = lvl; // Sets the room level
+        this.lvl = lvl;
     }
 
-    public String[] getStandard() {
-        return standard; // Returns the room standard options
+    /**
+     * Get the room standard.
+     *
+     * @return The room standard.
+     */
+    public Standard getStandard() {
+        return standard;
     }
 
-    public void setStandard(String[] standard) {
-        this.standard = standard; // Sets the room standard options
+    /**
+     * Set the room standard.
+     *
+     * @param standard The new room standard to set for the room.
+     */
+    public void setStandard(Standard standard) {
+        this.standard = standard;
     }
 
+    /**
+     * Get the room capacity.
+     *
+     * @return The room capacity.
+     */
     public Integer getCapacity() {
-        return Capacity; // Returns the room capacity
+        return capacity;
     }
 
-    public void setCapacity(Integer Capacity) {
-        this.Capacity = Capacity; // Sets the room capacity
+    /**
+     * Set the room capacity.
+     *
+     * @param capacity The new room capacity to set for the room.
+     */
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 }
-

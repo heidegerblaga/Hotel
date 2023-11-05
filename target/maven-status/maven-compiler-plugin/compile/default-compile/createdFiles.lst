@@ -1,6 +1,7 @@
 com\polsl\lab1\Models\Client.class
-com\polsl\lab1\Models\Room.class
-com\polsl\lab1\Models\Accomodation.class
 com\polsl\lab1\Controler\Controler.class
 com\polsl\lab1\Lab1.class
+com\polsl\lab1\Models\Room$Standard.class
+com\polsl\lab1\Models\Room.class
+com\polsl\lab1\Models\Accomodation.class
 com\polsl\lab1\view\View.class

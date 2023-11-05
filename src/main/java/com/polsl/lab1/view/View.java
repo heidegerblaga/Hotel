@@ -1,37 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
 package com.polsl.lab1.view;
 import com.polsl.lab1.Controler.Controler;
 import java.util.Scanner;
 import com.polsl.lab1.Models.Client;
 import com.polsl.lab1.Models.Room;
-import com.polsl.lab1.Models.Accomodation;
+import com.polsl.lab1.Models.Accomodation; 
 
 /**
+ * The main class for the accommodation management system.
  *
- * @author Pawel Pluta
+ * This class provides a simple command-line interface for managing accommodations.
+ *
+ * @author Paweł Pluta
  */
-
 public class View {
-    static Controler start;
+    static Controler  start = new Controler();
+    
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Accommodation manager\n");
-        System.out.print("1. Add new accommodation\n");
-        System.out.print("2. Exit\n\n");
+        System.out.println("Accommodation manager");
+        System.out.println("1. Add new accommodation");
+        System.out.println("2. Exit\n");
 
         String choice = scanner.nextLine();
 
         int number = start.toInt(choice);
 
         if (number == 1) {
+            
             Client newClient = start.newClient();
+            
 
             System.out.println("Choose a room (Number, level, standard, capacity): ");
 
@@ -72,21 +71,19 @@ public class View {
                 newAcc.setSpa(spa);
             }
 
-            String info = "Client: " + newAcc.getClient().getName() + " " + newAcc.getClient().getSurname() + "\n" 
-                         + "Room No: " + newAcc.getRoom().getNo() + "\n" 
-                         + "Email: " + newAcc.getClient().getMaill() + "\n" 
-                         + "Phone No: " + newAcc.getClient().getPhoneNo() + "\n" 
-                         + "Breakfast: " + newAcc.getBreakfast() + "\n" 
-                         + "Lunch: " + newAcc.getLunch() + "\n" 
-                         + "Dinner: " + newAcc.getDinner() + "\n" 
-                         + "SPA: " + newAcc.getSpa() + "\n ____________________";
+            String info = "Client: " + newAcc.getClient().getName() + " " + newAcc.getClient().getSurname() + "\n"
+                    + "Room No: " + newAcc.getRoom().getNo() + "\n"
+                    + "Email: " + newAcc.getClient().getMaill() + "\n"
+                    + "Phone No: " + newAcc.getClient().getPhoneNo() + "\n"
+                    + "Breakfast: " + newAcc.getBreakfast() + "\n"
+                    + "Lunch: " + newAcc.getLunch() + "\n"
+                    + "Dinner: " + newAcc.getDinner() + "\n"
+                    + "SPA: " + newAcc.getSpa() + "\n ____________________";
 
             start.save("AccommodationData.txt", info);
-            
-            
+
         } else if (number == 2) {
             System.exit(0);
         }
     }
 }
-

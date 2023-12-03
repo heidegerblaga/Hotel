@@ -42,6 +42,19 @@ public class Client {
      */
     String maill;
 
+
+
+
+    String data = name+" "+surname + " "+age + " "+ phoneNo + " "+ id + "" + maill;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = this.name+" "+this.surname + " "+this.age + " "+ this.phoneNo + " "+ this.id + " " + this.maill;
+    }
+
     // Create a list to store client objects
     private List<Client> clientList = new ArrayList<>();
 
@@ -50,8 +63,17 @@ public class Client {
         // Initialize the list if needed
     }
 
+    public Client(String name, String surname, Integer age, Integer phoneNo, Integer id, String maill) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.phoneNo = phoneNo;
+        this.id = id;
+        this.maill = maill;
+        this.data = name + " " + surname + " " + age + " " + phoneNo + " " + id + " " + maill;
+    }
     /**
-     * Add a client to the list of clients.
+     * Add a client to the list of clients.txt.
      *
      * @param client The client object to be added to the list.
      */
@@ -60,7 +82,7 @@ public class Client {
     }
 
     /**
-     * Get the list of clients.
+     * Get the list of clients.txt.
      *
      * @return The list of client objects.
      */

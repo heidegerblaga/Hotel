@@ -16,7 +16,7 @@ public class Room {
      * Enum for room standard options.
      */
     public enum Standard {
-        APARTMENT, LUXURY, FAMILY, ECONOMY
+        Apartment, Luxury, Family, Economy
     }
 
     private Integer no; // Field for storing the room number
@@ -101,8 +101,9 @@ public class Room {
      *
      * @param standard The new room standard to set for the room.
      */
-    public void setStandard(Standard standard) {
-        this.standard = standard;
+    public void setStandard(String standard) {
+        // Konwersja ciągu znaków na wartość enuma
+        this.standard = Standard.valueOf(standard.trim());
     }
 
     /**

@@ -1,8 +1,5 @@
 package com.polsl.lab1.Models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Class representing an accommodation object.
  *
@@ -10,7 +7,7 @@ import java.util.List;
  *
  * @author Paweł Pluta
  */
-public class Accomodation {
+public class Accommodation {
 
     /**
      * Field for storing the client associated with the accommodation.
@@ -42,6 +39,25 @@ public class Accomodation {
      */
     private Integer spa;
 
+
+    /**
+     * Constructor for the Accommodation class.
+     *
+     * @param client    The client associated with the accommodation.
+     * @param room      The room associated with the accommodation.
+     * @param dinner    The number of dinners included in the accommodation.
+     * @param breakfast The number of breakfasts included in the accommodation.
+     * @param lunch     The number of lunches included in the accommodation.
+     * @param spa       The spa services included in the accommodation.
+     */
+    public Accommodation(Client client, Room room, Integer dinner, Integer breakfast, Integer lunch, Integer spa) {
+        this.client = client;
+        this.room = room;
+        this.dinner = dinner;
+        this.breakfast = breakfast;
+        this.lunch = lunch;
+        this.spa = spa;
+    }
     /**
      * Get the client associated with the accommodation.
      *
@@ -149,4 +165,6 @@ public class Accomodation {
     public void setSpa(Integer spa) {
         this.spa = spa;
     }
+
+
 }

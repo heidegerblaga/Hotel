@@ -1,0 +1,72 @@
+Client: Henry Kissinger
+Room No: 3
+Email: 
+Phone No: 111222333
+Breakfast: 0
+Lunch: 1
+Dinner: 0
+SPA: 1
+ ____________________
+Client: James Bond
+Room No: 9
+Email: 007007007
+Phone No: 12345678
+Breakfast: 1
+Lunch: 1
+Dinner: 1
+SPA: 1
+ ____________________
+Client: Pawel Pluta
+Room No: 5
+Email: 3213123
+Phone No: 123123123
+Breakfast: 0
+Lunch: 1
+Dinner: 0
+SPA: 1
+ ____________________
+Client: James Bond
+Room No: 19
+Email: 213123123
+Phone No: 12312312
+Breakfast: 0
+Lunch: 0
+Dinner: 0
+SPA: 0
+ ____________________
+Client: James Bond
+Room No: 4
+Email: sk@gmail.com
+Phone No: 222333111
+Breakfast: 0
+Lunch: 1
+Dinner: 0
+SPA: 1
+ ____________________
+Client: Kuba Wojewódzk
+Room No: 6
+Email: 123123
+Phone No: 213123
+Breakfast: 0
+Lunch: 1
+Dinner: 1
+SPA: 1
+ ____________________
+Client: Bogusław Linda
+Room No: 8
+Email: 123123
+Phone No: 213123
+Breakfast: 0
+Lunch: 1
+Dinner: 1
+SPA: 1
+ ____________________
+Client: Krzysztof Stanowski
+Room No: 8
+Email: 123123
+Phone No: 213123
+Breakfast: 0
+Lunch: 1
+Dinner: 1
+SPA: 1
+ ____________________

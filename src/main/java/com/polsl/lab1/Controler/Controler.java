@@ -6,8 +6,8 @@ import java.util.Scanner;
 import com.polsl.lab1.Models.Room;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This class contains methods for managing accommodations and performing various tasks.
@@ -15,7 +15,7 @@ import java.util.List;
  * @author Pawel Pluta
  */
 public class Controler  {
-    
+
     /**
      * Method to append text to a file.
      *
@@ -59,7 +59,7 @@ public class Controler  {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * Method to create a new client object and input their details.
      *
@@ -87,6 +87,8 @@ public class Controler  {
         System.out.print("Client phone number: ");
         newClient.setPhoneNo(toInt(scanner.nextLine()));
 
+
+
         return newClient;
     }
 
@@ -112,11 +114,9 @@ public class Controler  {
      * @return A list of Room objects loaded from the file.
      */
     public List<Room> loadRooms() {
-        
+
         Room rooms = new Room();
-       
-        
-        
+
 
         try {
             File file = new File("Room.txt");
@@ -134,6 +134,7 @@ public class Controler  {
                     Room room = new Room();
                     room.setNo(toInt(data[0]));
                     room.setLvl(toInt(data[1]));
+                    room.setStandard(data[2]);
                     room.setCapacity(toInt(data[3]));
                     rooms.roomList.add(room);
                 }
@@ -145,11 +146,11 @@ public class Controler  {
         } catch (NumberFormatException e) {
             System.err.println("Error: " + e.getMessage());
         }
-        
+
         for (Room element : rooms.roomList) {
-            
-        System.out.println(element.getNo() + " " + element.getStandard());
-        
+
+            System.out.println(element.getNo() + " " + element.getStandard());
+
         }
 
         return rooms.roomList;
@@ -181,4 +182,55 @@ public class Controler  {
             return false;
         }
     }
+
+
+    public List<Client> loadClients() {
+
+        Client clients = new Client();
+
+
+        try {
+            File file = new File("clients.txt");
+            Scanner scanner = new Scanner(file);
+
+            // Skipping the first line (headers)
+            if (scanner.hasNextLine()) {
+                scanner.nextLine();
+            }
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] data = line.split("\\s+");
+
+                if ((data.length <= 6) && (data.length>=2)){
+                    Client client = new Client(data[0],data[1],toInt(data[2]),toInt(data[3]),toInt(data[4]),data[5]);
+
+                    clients.addClient(client);
+                }
+
+            }
+
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("Not found: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+
+
+        return clients.getClientList();
+    }
+
+
+    public List<Client> SearchClient(String name,String surname,List<Client> list)
+    {
+
+        return list.stream()
+                .filter(cli -> cli.getName().equals(name))  // Używamy equals do porównywania Stringów
+                .filter(cli -> cli.getSurname().equals(surname))
+                .collect(Collectors.toList());
+
+    }
+
 }
